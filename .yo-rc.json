@@ -1,0 +1,24 @@
+{
+  "generator-jhipster": {
+    "baseName": "punic",
+    "packageName": "com.mascova.punic",
+    "packageFolder": "com/mascova/punic",
+    "authenticationType": "session",
+    "hibernateCache": "no",
+    "clusteredHttpSession": "no",
+    "websocket": "no",
+    "databaseType": "sql",
+    "devDatabaseType": "postgresql",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": "no",
+    "useSass": false,
+    "buildTool": "maven",
+    "frontendBuilder": "grunt",
+    "enableTranslation": true,
+    "enableSocialSignIn": false,
+    "rememberMeKey": "61e5a7cdd68155f8b796db5a156ef0f8b4c312cc",
+    "testFrameworks": [
+      "gatling"
+    ]
+  }
+}

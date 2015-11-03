@@ -1,0 +1,11 @@
+jhipster-prod-postgresql:
+  container_name: punic-prod-postgresql
+  image: postgres
+  # volumes:
+  # - ~/volumes/jhipster/punic/prod-postgresql/:/var/lib/postgresql/
+  environment:
+  - POSTGRES_USER=punic
+  - POSTGRES_PASSWORD=
+  ports:
+  - "5432:5432"
+
