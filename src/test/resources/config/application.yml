@@ -19,12 +19,12 @@
 spring:
     datasource:
         driver-class-name: org.h2.jdbcx.JdbcDataSource
-        url: jdbc:h2:mem:punic;DB_CLOSE_DELAY=-1
+        url: jdbc:h2:mem:talarion2;DB_CLOSE_DELAY=-1
         name:
         username:
         password:
     jpa:
-        database-platform: com.mascova.punic.domain.util.FixedH2Dialect
+        database-platform: com.mascova.talarion2.domain.util.FixedH2Dialect
         database: H2
         open-in-view: false
         show_sql: true
@@ -71,8 +71,8 @@ jhipster:
     metrics: # DropWizard Metrics configuration, used by MetricsConfiguration
         jmx.enabled: true
     swagger:
-        title: punic API
-        description: punic API documentation
+        title: talarion2 API
+        description: talarion2 API documentation
         version: 0.0.1
         termsOfServiceUrl:
         contact:

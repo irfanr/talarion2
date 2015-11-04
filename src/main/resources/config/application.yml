@@ -39,14 +39,14 @@ jhipster:
         maxPoolSize: 50
         queueCapacity: 10000
     mail:
-        from: punic@localhost
+        from: talarion2@localhost
     security:
         rememberme:
             # security key (this key should be unique for your application, and kept secret)
             key: 61e5a7cdd68155f8b796db5a156ef0f8b4c312cc
     swagger:
-        title: punic API
-        description: punic API documentation
+        title: talarion2 API
+        description: talarion2 API documentation
         version: 0.0.1
         termsOfServiceUrl:
         contact:

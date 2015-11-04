@@ -9,11 +9,11 @@
         <relativePath/>
     </parent>
 
-    <groupId>com.mascova.punic</groupId>
-    <artifactId>punic</artifactId>
+    <groupId>com.mascova.talarion2</groupId>
+    <artifactId>talarion2</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
-    <name>punic</name>
+    <name>talarion2</name>
 
     <repositories>
         <repository>
@@ -533,11 +533,11 @@
                     <changeLogFile>src/main/resources/config/liquibase/master.xml</changeLogFile>
                     <diffChangeLogFile>src/main/resources/config/liquibase/changelog/${maven.build.timestamp}_changelog.xml</diffChangeLogFile>
                     <driver>org.postgresql.Driver</driver>
-                    <url>jdbc:postgresql://localhost/punic</url>
+                    <url>jdbc:postgresql://localhost/talarion2</url>
                     <defaultSchemaName></defaultSchemaName>
-                    <username>punic</username>
+                    <username>talarion2</username>
                     <password></password>
-                    <referenceUrl>hibernate:spring:com.mascova.punic.domain?dialect=org.hibernate.dialect.PostgreSQL82Dialect</referenceUrl>
+                    <referenceUrl>hibernate:spring:com.mascova.talarion2.domain?dialect=org.hibernate.dialect.PostgreSQL82Dialect</referenceUrl>
                     <verbose>true</verbose>
                     <logging>debug</logging>
                 </configuration>

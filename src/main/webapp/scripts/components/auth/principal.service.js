@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('punicApp')
+angular.module('talarion2App')
     .factory('Principal', function Principal($q, Account) {
         var _identity,
             _authenticated = false;

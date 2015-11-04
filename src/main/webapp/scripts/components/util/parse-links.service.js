@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('punicApp')
+angular.module('talarion2App')
     .service('ParseLinks', function () {
         this.parse = function (header) {
             if (header.length == 0) {

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('punicApp')
+angular.module('talarion2App')
     .factory('Book', function ($resource, DateUtils) {
         return $resource('api/books/:id', {}, {
             'query': { method: 'GET', isArray: true},

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('punicApp')
+angular.module('talarion2App')
     .factory('MonitoringService', function ($rootScope, $http) {
         return {
             getMetrics: function () {

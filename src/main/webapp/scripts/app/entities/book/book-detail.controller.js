@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('punicApp')
+angular.module('talarion2App')
     .controller('BookDetailController', function ($scope, $rootScope, $stateParams, entity, Book, Author) {
         $scope.book = entity;
         $scope.load = function (id) {
@@ -8,7 +8,7 @@ angular.module('punicApp')
                 $scope.book = result;
             });
         };
-        var unsubscribe = $rootScope.$on('punicApp:bookUpdate', function(event, result) {
+        var unsubscribe = $rootScope.$on('talarion2App:bookUpdate', function(event, result) {
             $scope.book = result;
         });
         $scope.$on('$destroy', unsubscribe);

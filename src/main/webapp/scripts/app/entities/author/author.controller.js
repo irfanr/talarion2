@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('punicApp')
+angular.module('talarion2App')
     .controller('AuthorController', function ($scope, Author, ParseLinks) {
         $scope.authors = [];
         $scope.page = 0;

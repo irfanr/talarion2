@@ -1,7 +1,7 @@
 /* globals $ */
 'use strict';
 
-angular.module('punicApp')
+angular.module('talarion2App')
     .directive('passwordStrengthBar', function () {
         return {
             replace: true,

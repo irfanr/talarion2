@@ -1,18 +1,18 @@
 'use strict';
 
-angular.module('punicApp')
+angular.module('talarion2App')
     .factory('Password', function ($resource) {
         return $resource('api/account/change_password', {}, {
         });
     });
 
-angular.module('punicApp')
+angular.module('talarion2App')
     .factory('PasswordResetInit', function ($resource) {
         return $resource('api/account/reset_password/init', {}, {
         })
     });
 
-angular.module('punicApp')
+angular.module('talarion2App')
     .factory('PasswordResetFinish', function ($resource) {
         return $resource('api/account/reset_password/finish', {}, {
         })

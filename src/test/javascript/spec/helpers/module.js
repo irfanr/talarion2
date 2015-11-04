@@ -1,4 +1,4 @@
-beforeEach(module('punicApp'));
+beforeEach(module('talarion2App'));
 /**
  * returns a function whose angular will be replaced
  * with whatever mock was supplied.

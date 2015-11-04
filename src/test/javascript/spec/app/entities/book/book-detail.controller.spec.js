@@ -28,7 +28,7 @@ describe('Book Detail Controller', function() {
 
     describe('Root Scope Listening', function() {
         it('Unregisters root scope listener upon scope destruction', function() {
-            var eventType = 'punicApp:bookUpdate';
+            var eventType = 'talarion2App:bookUpdate';
 
             createController();
             expect($rootScope.$$listenerCount[eventType]).toEqual(1);

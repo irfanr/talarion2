@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('punicApp').controller('AuthorDialogController',
+angular.module('talarion2App').controller('AuthorDialogController',
     ['$scope', '$stateParams', '$modalInstance', 'entity', 'Author', 'Book',
         function($scope, $stateParams, $modalInstance, entity, Author, Book) {
 
@@ -13,7 +13,7 @@ angular.module('punicApp').controller('AuthorDialogController',
         };
 
         var onSaveFinished = function (result) {
-            $scope.$emit('punicApp:authorUpdate', result);
+            $scope.$emit('talarion2App:authorUpdate', result);
             $modalInstance.close(result);
         };
 

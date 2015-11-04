@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('punicApp')
+angular.module('talarion2App')
     .factory('AlertService', function ($timeout, $sce,$translate) {
         var exports = {
             factory: factory,

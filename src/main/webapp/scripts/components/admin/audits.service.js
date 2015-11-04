@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('punicApp')
+angular.module('talarion2App')
     .factory('AuditsService', function ($http) {
         return {
             findAll: function () {

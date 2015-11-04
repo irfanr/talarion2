@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('punicApp')
+angular.module('talarion2App')
     .controller('BookController', function ($scope, Book, ParseLinks) {
         $scope.books = [];
         $scope.page = 0;

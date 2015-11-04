@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('punicApp')
+angular.module('talarion2App')
     .filter('capitalize', function () {
         return function (input, scope) {
             if (input != null)
