@@ -68,9 +68,9 @@ angular.module('talarion2App', ['LocalStorageModule', 'tmh.dynamicLocale', 'pasc
         $stateProvider.state('site', {
             'abstract': true,
             views: {
-                'navbar@': {
-                    templateUrl: 'scripts2/components/navbar/navbar.html',
-                    controller: 'NavbarController'
+                'sidebar-left@': {
+                    templateUrl: 'scripts2/components/sidebar-left/sidebar-left.html',
+                    controller: 'SidebarLeftController'
                 }
             },
             resolve: {
