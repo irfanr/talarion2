@@ -32,6 +32,23 @@
         </div>
         <div class="collapse navbar-collapse" id="navbar-collapse" ng-switch="isAuthenticated()">
             <ul class="nav navbar-nav nav-pills navbar-right"> -->
+
+<!-- Start left navigation - footer -->
+<div class="sidebar-footer" ng-show="isAuthenticated()">
+    <a class="pull-left" data-placement="top" data-title="Setting" data-toggle="tooltip" href="javascript:void(0);" id="setting">
+        <i class="fa fa-cog"></i>
+    </a>
+    <a class="pull-left" data-placement="top" data-title="Fullscreen" data-toggle="tooltip" href="javascript:void(0);" id="fullscreen">
+        <i class="fa fa-desktop"></i>
+    </a>
+    <a class="pull-left" data-placement="top" data-title="Lock Screen" data-toggle="tooltip" data-url="page-signin.html" href="javascript:void(0);" id="lock-screen">
+        <i class="fa fa-lock"></i>
+    </a>
+    <a class="pull-left" data-placement="top" data-title="Logout" data-toggle="tooltip" data-url="page-lock-screen.html" href="" ng-click="logout()" id="logout">
+        <i class="fa fa-power-off"></i>
+    </a>
+</div>
+
 <ul class="sidebar-menu" ng-switch="isAuthenticated()">
     <li ui-sref-active="active">
         <a ui-sref="home">
