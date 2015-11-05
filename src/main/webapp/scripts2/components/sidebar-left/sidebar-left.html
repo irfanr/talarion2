@@ -1,15 +1,16 @@
 <!-- Start left navigation - profile shortcut -->
-<div class="sidebar-content">
+<div class="sidebar-content" ng-show="isAuthenticated()">
     <div class="media">
         <a class="pull-left has-notif avatar" href="page-profile.html">
-          <img alt="admin" src="themes/blankon/1.1.1/assets/global/img/avatar/50/26.png">
+            <img alt="admin" src="themes/blankon/1.1.1/assets/global/img/avatar/50/26.png">
             <i class="online"></i>
         </a>
-        <div class="media-body">
+        <div class="media-body" ng-controller="UserProfileController">
             <h4 class="media-heading">Hello,
-                <span>Lee</span>
+                <span id="account-firstName">{{account.firstName}}</span>
             </h4>
-            <small>Web Designer</small>
+            <small>Group:
+                {{account.group.name}}</small>
         </div>
     </div>
 </div>

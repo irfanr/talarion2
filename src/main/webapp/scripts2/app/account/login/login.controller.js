@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('talarion2App')
-    .controller('LoginController', function ($rootScope, $scope, $state, $timeout, Auth) {
+    .controller('LoginController', function ($rootScope, $scope, $state, $timeout, Auth, Principal) {
         $scope.user = {};
         $scope.errors = {};
 
@@ -15,6 +15,12 @@ angular.module('talarion2App')
                 rememberMe: $scope.rememberMe
             }).then(function () {
                 $scope.authenticationError = false;
+
+                Principal.identity().then(function(account) {
+                  // Redefine $rootScope.account after logged in
+                    $rootScope.account = account;
+                });
+
                 if ($rootScope.previousStateName === 'register') {
                     $state.go('home');
                 } else {

@@ -4,7 +4,7 @@ angular.module('talarion2App')
     .directive('activeMenu', function($translate, $locale, tmhDynamicLocale) {
         return {
             restrict: 'A',
-            link: function (scope, element, attrs) {
+            link: function(scope, element, attrs) {
                 var language = attrs.activeMenu;
 
                 scope.$watch(function() {
@@ -23,7 +23,7 @@ angular.module('talarion2App')
     .directive('activeLink', function(location) {
         return {
             restrict: 'A',
-            link: function (scope, element, attrs) {
+            link: function(scope, element, attrs) {
                 var clazz = attrs.activeLink;
                 var path = attrs.href;
                 path = path.substring(1); //hack because path does bot return including hashbang
@@ -36,5 +36,35 @@ angular.module('talarion2App')
                     }
                 });
             }
+        };
+    })
+    .controller('UserProfileController', function($scope, $rootScope, Principal) {
+
+        // Principal.identity().then(function(account) {
+        // 	console.log('refresh');
+        //     $scope.account = account;
+        // });
+
+        $rootScope.customer = {
+            name: 'Naomi',
+            address: '1600 Amphitheatre'
+        };
+    })
+    .directive('userProfileFirstName', function($rootScope, Principal) {
+        return {
+            restrict: 'A',
+            template: $rootScope.account.firstName
+                // link: function(rootScope, scope, element, attrs) {
+                //
+                // 	console.log('refresh1');
+                //
+                //     Principal.identity().then(function(account) {
+                //
+                //
+                // 			console.log('refresh2');
+                // 				scope.account = account;
+                //     });
+                //
+                // }
         };
     });
