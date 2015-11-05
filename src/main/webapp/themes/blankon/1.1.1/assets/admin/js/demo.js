@@ -3,7 +3,7 @@ var BlankonDemo = function () {
     // =========================================================================
     // SETTINGS APP
     // =========================================================================
-    var adminCssPath = BlankonApp.handleBaseURL()+'/assets/admin/css';
+    var adminCssPath = BlankonApp.handleBaseURL()+'/themes/blankon/1.1.1/assets/admin/css';
 
     return {
 
@@ -16,7 +16,7 @@ var BlankonDemo = function () {
             BlankonDemo.handleSidebarColor();
             BlankonDemo.handleLayoutSetting();
         },
-        
+
         // =========================================================================
         // CHOOSE THEMES
         // =========================================================================
@@ -307,7 +307,7 @@ var BlankonDemo = function () {
 
             });
         }
-        
+
     };
 
 }();

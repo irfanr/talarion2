@@ -40,7 +40,8 @@ var BlankonApp = function(){
         // =========================================================================
         handleBaseURL: function () {
             var getUrl = window.location,
-                baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
+                baseUrl = getUrl .protocol + "//" + getUrl.host;
+                console.log('baseUrl: '+baseUrl);
             return baseUrl;
         },
 
