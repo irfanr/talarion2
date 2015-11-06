@@ -2,7 +2,7 @@
 
 angular.module('talarion2App', ['LocalStorageModule', 'tmh.dynamicLocale', 'pascalprecht.translate',
                'ui.bootstrap', // for modal dialogs
-    'ngResource', 'ui.router', 'ngCookies', 'ngAria', 'ngCacheBuster', 'ngFileUpload', 'infinite-scroll'])
+    'ngResource', 'ui.router', 'ngCookies', 'ngAria', 'ngCacheBuster', 'ngFileUpload', 'infinite-scroll','smart-table','angular-growl'])
 
     .run(function ($rootScope, $location, $window, $http, $state, $translate, Language, Auth, Principal, ENV, VERSION) {
         $rootScope.ENV = ENV;
@@ -55,7 +55,7 @@ angular.module('talarion2App', ['LocalStorageModule', 'tmh.dynamicLocale', 'pasc
             }
         };
     })
-    .config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider, $translateProvider, tmhDynamicLocaleProvider, httpRequestInterceptorCacheBusterProvider) {
+    .config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider, $translateProvider, tmhDynamicLocaleProvider, httpRequestInterceptorCacheBusterProvider, growlProvider) {
 
         //enable CSRF
         $httpProvider.defaults.xsrfCookieName = 'CSRF-TOKEN';
@@ -102,6 +102,8 @@ angular.module('talarion2App', ['LocalStorageModule', 'tmh.dynamicLocale', 'pasc
         tmhDynamicLocaleProvider.localeLocationPattern('bower_components/angular-i18n/angular-locale_{{locale}}.js');
         tmhDynamicLocaleProvider.useCookieStorage();
         tmhDynamicLocaleProvider.storageKey('NG_TRANSLATE_LANG_KEY');
+
+        growlProvider.globalTimeToLive(3000);
 
     })
     .config(['$urlMatcherFactoryProvider', function($urlMatcherFactory) {

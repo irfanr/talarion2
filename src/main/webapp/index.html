@@ -55,6 +55,8 @@
         <script src="themes/blankon/1.1.1/assets/global/plugins/bower_components/respond-minmax/dest/respond.min.js"></script>
         <![endif]-->
     <!--/ END IE SUPPORT -->
+
+    <link href="bower_components/angular-growl-v2/build/angular-growl.min.css" rel="stylesheet">
 </head>
 <!--/ END HEAD -->
 
@@ -99,6 +101,8 @@
     -->
 
 <body ng-app="talarion2App">
+
+  <div growl></div>
 
     <!--[if lt IE 9]>
         <p class="upgrade-browser">Upps!! You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" target="_blank">upgrade your browser</a> to improve your experience.</p>
@@ -746,6 +750,8 @@
     <script src="bower_components/json3/lib/json3.js"></script>
     <script src="bower_components/ng-file-upload/ng-file-upload.js"></script>
     <script src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js"></script>
+    <script src="bower_components/angular-smart-table/dist/smart-table.min.js"></script>
+    <script src="bower_components/angular-growl-v2/build/angular-growl.min.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -837,6 +843,17 @@
     <script src="scripts2/app/entities/book/book-dialog.controller.js"></script>
     <script src="scripts2/app/entities/book/book-detail.controller.js"></script>
     <script src="scripts2/components/entities/book/book.service.js"></script>
+
+    <script src="scripts2/app/entities/category/category.js"></script>
+    <script src="scripts2/app/entities/category/category-list.controller.js"></script>
+    <script src="scripts2/app/entities/category/category-create.controller.js"></script>
+    <script src="scripts2/app/entities/category/category-edit.controller.js"></script>
+    <script src="scripts2/components/entities/category/category.service.js"></script>
+    <script src="scripts2/app/entities/product/product.js"></script>
+    <script src="scripts2/app/entities/product/product-list.controller.js"></script>
+    <script src="scripts2/app/entities/product/product-create.controller.js"></script>
+    <script src="scripts2/app/entities/product/product-edit.controller.js"></script>
+    <script src="scripts2/components/entities/product/product.service.js"></script>
     <!-- endbuild -->
 
     <!-- START JAVASCRIP81b71aT SECTION (Load javascripts at bottom to reduce load time) -->
