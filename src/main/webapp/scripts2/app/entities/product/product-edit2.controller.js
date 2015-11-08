@@ -5,7 +5,7 @@
  * @name yoAngularApp.controller:AboutCtrl
  * @description # AboutCtrl Controller of the yoAngularApp
  */
-angular.module('talarion2App').controller('ProductEditController',
+angular.module('talarion2App').controller('ProductEdit2Controller',
     function($scope, $state, $stateParams, Product, Category, ParseLinks, growl) {
 
         $scope.submitted = false;

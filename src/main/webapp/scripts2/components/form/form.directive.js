@@ -6,7 +6,7 @@ angular.module('talarion2App')
         return {
             restrict: 'A',
             require: 'form',
-            link: function (scope, element) {
+            link: function(scope, element) {
                 element.find('.form-group').each(function() {
                     var $formGroup = $(this);
                     var $inputs = $formGroup.find('input[ng-model],textarea[ng-model],select[ng-model]');
@@ -24,4 +24,17 @@ angular.module('talarion2App')
                 });
             }
         };
-    });
+    })
+    .directive('selectOnClick', ['$window', function($window) {
+        return {
+            restrict: 'A',
+            link: function(scope, element, attrs) {
+                element.on('click', function() {
+                    if (!$window.getSelection().toString()) {
+                        // Required for mobile Safari
+                        this.setSelectionRange(0, this.value.length)
+                    }
+                });
+            }
+        };
+    }]);;

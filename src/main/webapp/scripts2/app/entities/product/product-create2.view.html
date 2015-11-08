@@ -55,7 +55,7 @@
 </div>
 <div class="header-content">
 <h2>
-    <i class="fa fa-cogs"></i>Edit Product
+    <i class="fa fa-cogs"></i>Create Product
 </h2>
 <div class="breadcrumb-wrapper hidden-xs">
     <span class="label">You are here:</span>
@@ -82,40 +82,37 @@
         <div class="panel rounded shadow">
             <!-- /.panel-heading -->
             <div class="panel-body no-padding">
-                <form class="form-horizontal mt-10" name="editForm" ng-submit="save()" novalidate>
+                <form class="form-horizontal mt-10" name="createForm" ng-submit="create()" novalidate>
                     <div class="form-body">
-                        <div class="form-group" ng-class="{ 'has-error': submitted && editForm.name.$invalid }">
+                        <div class="form-group" ng-class="{ 'has-error': submitted && createForm.name.$invalid }">
                             <label class="col-sm-3 control-label" for="id">Name</label>
                             <div class="col-sm-7">
                                 <input class="form-control" id="name" name="name" ng-model="product.name" required type="text"/>
-                                <div ng-if="submitted" ng-messages="editForm.name.$error">
+                                <div ng-if="submitted" ng-messages="createForm.name.$error">
                                     <div ng-messages-include="scripts2/components/messages/global-messages.html"></div>
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group" ng-class="{ 'has-error': submitted && editForm.category-name.$invalid }">
+                        <div class="form-group" ng-class="{ 'has-error': submitted && createForm.category-name.$invalid }">
                             <label class="col-sm-3 control-label" for="categoryName">Category</label>
                             <div class="col-sm-7">
-                                <angucomplete-alt description-field="name" id="categoryName" input-class="form-control form-control-small" name="categoryName" pause="400" placeholder="Type Category Name Here ..." remote-url="http://localhost:8080/api/category?name=" selected-object="selectCategoryAc" title-field="name" initial-value="product.category.name" selectOnClick/>
+                                <angucomplete-alt description-field="name" id="categoryName" name="categoryName" input-class="form-control form-control-small" pause="400" placeholder="Type Category Name Here ..." remote-url="http://localhost:8080/api/category?name=" selected-object="selectCategoryAc" title-field="name"/>
                                 <input class="form-control" id="categoryName" name="categoryName" ng-model="product.category.name" readonly required type="text">
-                                <div ng-if="submitted" ng-messages="editForm.categoryName.$error">
+                                <div ng-if="submitted" ng-messages="createForm.categoryName.$error">
                                     <div ng-messages-include="scripts2/components/messages/global-messages.html"></div>
                                 </div>
                             </div>
-                            <div class="col-sm-2">
-                              <button type="button" ng-click="clearInput(categoryName)" class="btn btn-circle btn-default btn-stroke">
-                                <i class="fa fa-eraser"></i>
-                              </button>
+                            <!-- <div class="col-sm-2">
                                 <button class="btn btn-circle btn-default btn-stroke" id="lookupButton" ng-click="showLookup()" type="button">
                                     <i class="fa fa-search"></i>
                                 </button>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <!-- /.form-body -->
                     <div class="form-footer">
                         <div class="col-sm-offset-3">
-                            <button class="btn btn-success" type="submit">Save</button>
+                            <button class="btn btn-success" type="submit">Create</button>
                         </div>
                     </div>
                     <!-- /.form-footer -->

@@ -23,8 +23,8 @@ angular.module('talarion2App')
                 },
                 views: {
                     'content@': {
-                        templateUrl: 'scripts2/app/entities/product/product-create.view.html',
-                        controller: 'ProductCreateController'
+                        templateUrl: 'scripts2/app/entities/product/product-create2.view.html',
+                        controller: 'ProductCreate2Controller'
                     }
                 }
             }).state('product-edit', {
@@ -35,8 +35,8 @@ angular.module('talarion2App')
                 },
                 views: {
                     'content@': {
-                        templateUrl: 'scripts2/app/entities/product/product-edit.view.html',
-                        controller: 'ProductEditController'
+                        templateUrl: 'scripts2/app/entities/product/product-edit2.view.html',
+                        controller: 'ProductEdit2Controller'
                     }
                 }
             });

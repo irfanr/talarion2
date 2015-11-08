@@ -2,10 +2,10 @@
 
 /**
  * @ngdoc function
- * @name yoAngularApp.controller:AboutCtrl
- * @description # AboutCtrl Controller of the yoAngularApp
+ * @name talarion2App.controller:ProductCreateController
+ * @description # ProductCreateController Controller of the talarion2App
  */
-angular.module('talarion2App').controller('ProductEditController',
+angular.module('talarion2App').controller('ProductCreate2Controller',
     function($scope, $state, $stateParams, Product, Category, ParseLinks, growl) {
 
         $scope.submitted = false;
@@ -13,24 +13,17 @@ angular.module('talarion2App').controller('ProductEditController',
         $scope.product = {};
         $scope.product.category = {};
 
-        $scope.load = function(id) {
-            Product.get({
-                id: id
-            }, function(result) {
-                $scope.product = result;
-            });
-        };
-        $scope.load($stateParams.id);
-
-        $scope.save = function() {
+        $scope.create = function() {
 
             $scope.submitted = true;
 
-            if ($scope.editForm.$valid) {
+            if ($scope.createForm.$valid) {
 
-                Product.update($scope.product, function() {
-                    growl.info("Product successfully edited ", {});
-                    $state.go('product');
+                Product.save($scope.product, function() {
+
+                    growl.info("Product successfully added ", {});
+
+                    $state.go('product')
                 });
 
             }
@@ -87,22 +80,12 @@ angular.module('talarion2App').controller('ProductEditController',
 
         };
 
-        $scope.selectCategoryAc = function(selected) {
+        $scope.selectCategoryAc = function(selected){
 
-            if (selected != undefined) {
-                // console.log(JSON.stringify(selected));
+          // console.log(JSON.stringify(selected));
 
-                $scope.product.category = selected.originalObject;
-            }
+          $scope.product.category = selected.originalObject;
 
-        }
-
-        $scope.clearInput = function(id) {
-            if (id) {
-                $scope.$broadcast('angucomplete-alt:clearInput', id);
-            } else {
-                $scope.$broadcast('angucomplete-alt:clearInput');
-            }
         }
 
     });
