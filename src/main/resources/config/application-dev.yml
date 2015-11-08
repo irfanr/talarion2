@@ -44,6 +44,9 @@ liquibase:
 
 server:
     port: 8080
+    
+image:
+    host: http://localhost    
 
 # ===================================================================
 # JHipster specific properties

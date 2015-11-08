@@ -77,12 +77,13 @@ public class CategoryResource {
   public ResponseEntity<List<Category>> getAll(
       @RequestParam(value = "page", required = false) Integer offset,
       @RequestParam(value = "size", required = false) Integer size,
-      @RequestParam(value = "name", required = false) String name) throws URISyntaxException {
+      @RequestParam(value = "name", required = false) String name,
+      @RequestParam(value = "name2", required = false) String name2) throws URISyntaxException {
 
     CategorySpecificationBuilder builder = new CategorySpecificationBuilder();
 
     if (StringUtils.isNotBlank(name)) {
-      builder.with("name", ":", name);
+      builder.with("name2", ":", name);
     }
 
     Page<Category> page = categoryRepository.findAll(builder.build(),
