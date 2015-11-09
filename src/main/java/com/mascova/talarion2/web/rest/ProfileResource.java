@@ -6,6 +6,7 @@ import java.io.IOException;
 import javax.inject.Inject;
 
 import org.apache.commons.io.FilenameUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.env.Environment;
@@ -55,6 +56,10 @@ public class ProfileResource {
         String hostUrl = env.getProperty("image.host.url");
         String systemPath = env.getProperty("image.host.path.system");
         String relativePath = env.getProperty("image.host.path.relative");
+
+        if (StringUtils.equalsIgnoreCase(systemPath, "user.dir")) {
+          systemPath = System.getProperty("user.dir") + "/src/main/webapp";
+        }
 
         String fileExt = FilenameUtils.getExtension(file.getOriginalFilename());
 
