@@ -5,7 +5,7 @@ angular.module('talarion2App')
 
         $scope.uploadPic = function(file) {
             file.upload = Upload.upload({
-                url: 'http://localhost:8080/api/upload',
+                url: '/api/upload',
                 // fields: {
                 //     'username': $scope.username
                 // }, // additional data to send
