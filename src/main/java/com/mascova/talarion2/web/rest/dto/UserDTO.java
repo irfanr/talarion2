@@ -49,17 +49,20 @@ public class UserDTO {
 
   private Group group;
 
+  private String profileImagePath;
+
   public UserDTO() {
   }
 
   public UserDTO(User user) {
     this(user.getLogin(), null, user.getFirstName(), user.getLastName(), user.getEmail(), user
         .getActivated(), user.getLangKey(), user.getAuthorities().stream().map(Authority::getName)
-        .collect(Collectors.toSet()), user.getGroup());
+        .collect(Collectors.toSet()), user.getGroup(), user.getProfileImagePath());
   }
 
   public UserDTO(String login, String password, String firstName, String lastName, String email,
-      boolean activated, String langKey, Set<String> authorities, Group group) {
+      boolean activated, String langKey, Set<String> authorities, Group group,
+      String profileImagePath) {
 
     this.login = login;
     this.password = password;
@@ -70,6 +73,7 @@ public class UserDTO {
     this.langKey = langKey;
     this.authorities = authorities;
     this.group = group;
+    this.profileImagePath = profileImagePath;
   }
 
   public String getPassword() {
@@ -118,5 +122,13 @@ public class UserDTO {
 
   public void setGroup(Group group) {
     this.group = group;
+  }
+
+  public String getProfileImagePath() {
+    return profileImagePath;
+  }
+
+  public void setProfileImagePath(String profileImagePath) {
+    this.profileImagePath = profileImagePath;
   }
 }

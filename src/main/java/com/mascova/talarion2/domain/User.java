@@ -89,6 +89,9 @@ public class User extends AbstractAuditingEntity implements Serializable {
   @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "user")
   private Set<PersistentToken> persistentTokens = new HashSet<>();
 
+  @Column(name = "profile_image_path")
+  private String profileImagePath;
+
   @ManyToOne
   private Group group;
 
@@ -232,5 +235,13 @@ public class User extends AbstractAuditingEntity implements Serializable {
 
   public void setGroup(Group group) {
     this.group = group;
+  }
+
+  public String getProfileImagePath() {
+    return profileImagePath;
+  }
+
+  public void setProfileImagePath(String profileImagePath) {
+    this.profileImagePath = profileImagePath;
   }
 }
