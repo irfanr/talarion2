@@ -38,8 +38,7 @@ public class ProfileResource {
   private UserRepository userRepository;
 
   @RequestMapping(value = "/upload", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-  public ResponseEntity<User> upload(@RequestParam("file") MultipartFile file,
-      @RequestParam("username") String username) throws IOException {
+  public ResponseEntity<User> upload(@RequestParam("file") MultipartFile file) throws IOException {
 
     User currentLoggedUser = userRepository.findOne(SecurityUtils.getCurrentUserId());
 
@@ -79,8 +78,6 @@ public class ProfileResource {
       }
 
     }
-
-    System.out.println(String.format("receive %s from %s", file.getOriginalFilename(), username));
 
     return new ResponseEntity<>(currentLoggedUser, HttpStatus.OK);
   }
