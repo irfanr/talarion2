@@ -5,6 +5,7 @@ import java.io.IOException;
 
 import javax.inject.Inject;
 
+import org.apache.commons.io.FilenameUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.env.Environment;
@@ -52,23 +53,26 @@ public class ProfileResource {
 
         System.out.println(System.getProperty("user.dir"));
 
-        String systemPath = "/var/www/";
-        String relativePath = "html/talarion2/images/profiles/";
+        String hostUrl = env.getProperty("image.host.url");
+        String systemPath = env.getProperty("image.host.path.system");
+        String relativePath = env.getProperty("image.host.path.relative");
 
-        File savedFile = new File(systemPath + relativePath + file.getOriginalFilename());
+        String fileExt = FilenameUtils.getExtension(file.getOriginalFilename());
+
+        File savedFile = new File(systemPath + relativePath + currentLoggedUser.getLogin() + "."
+            + fileExt);
+
+        if (savedFile.delete()) {
+          // System.out.println(file.getName() + " is deleted!");
+        } else {
+          // System.out.println("Delete operation is failed.");
+        }
 
         file.transferTo(savedFile);
 
-        // if file doesnt exists, then create it
-        if (!savedFile.exists()) {
-          savedFile.createNewFile();
-        }
-
-        currentLoggedUser.setProfileImagePath(env.getProperty("image.host") + "/" + relativePath
-            + file.getOriginalFilename());
+        currentLoggedUser.setProfileImagePath(hostUrl + "/" + relativePath
+            + currentLoggedUser.getLogin() + "." + fileExt);
         userRepository.save(currentLoggedUser);
-
-        System.out.println("Done2345678");
 
       } catch (IOException e) {
         e.printStackTrace();

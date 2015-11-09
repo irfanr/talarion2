@@ -15,9 +15,8 @@ angular.module('talarion2App')
             file.upload.then(function(response) {
                 $timeout(function() {
                     file.result = response.data;
-                    console.log('1' + response.data);
-
-                    $rootScope.account.profileImagePath = response.data.profileImagePath;
+                    console.log('1: ' + response.data.profileImagePath);                    
+                    $rootScope.account.profileImagePath = response.data.profileImagePath + '?decache=';
 
                     Principal.identity().then(function(account) {
                         $rootScope.account = account;

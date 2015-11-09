@@ -46,7 +46,11 @@ server:
     port: 8080
     
 image:
-    host: http://localhost    
+    host:
+      url: http://localhost 
+      path:
+        system: /var/www/   
+        relative: html/talarion2/images/profiles/
 
 # ===================================================================
 # JHipster specific properties
