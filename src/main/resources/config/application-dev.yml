@@ -28,6 +28,9 @@ spring:
         database-platform: com.mascova.talarion2.domain.util.FixedPostgreSQL82Dialect
         database: POSTGRESQL
         show_sql: true
+#        hibernate:
+#            ddl-auto: update
+#            naming-strategy: org.hibernate.cfg.EJB3NamingStrategy
         properties:
             hibernate.cache.use_second_level_cache: false
             hibernate.cache.use_query_cache: false

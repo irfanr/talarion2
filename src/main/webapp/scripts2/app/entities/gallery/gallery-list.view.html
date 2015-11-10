@@ -1,0 +1,41 @@
+<div class="header-content">
+    <h2>
+        <i class="fa fa-cogs"></i>Gallery
+    </h2>
+    <div class="breadcrumb-wrapper hidden-xs">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+            <li>
+                <i class="fa fa-cogs"></i>
+                Gallery
+                <i class="fa fa-angle-right"></i>
+            </li>
+        </ol>
+    </div>
+</div>
+<div class="body-content animated fadeIn">
+    <div class="row">
+
+        <ul id="gallery">
+
+          <li class="mix category-animal" data-value="4" style="display: inline-block;" ng-repeat="image in imageList">
+              <div class="gallery-item rounded shadow">
+                  <a class="gallery-img" href="javascript:void(0);"><img alt="..." class="img-responsive full-width" src="{{image.uri}}"></a>
+                  <div class="gallery-details">
+                      <div class="gallery-summary">
+                          <p>{{image.name}}</p>
+                      </div>
+                  </div>
+              </div>
+              <!-- /.gallery-item -->
+          </li>
+
+        </ul>
+
+    </div>
+
+    <!-- /.row -->
+</div>
+<footer class="footer-content">
+    2015 &copy; Mascova
+</footer>

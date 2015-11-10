@@ -16,4 +16,6 @@
   <include file="classpath:config/liquibase/changelog/village.xml" relativeToChangelogFile="false" />
   <include file="classpath:config/liquibase/changelog/category.xml" relativeToChangelogFile="false" />
   <include file="classpath:config/liquibase/changelog/product.xml" relativeToChangelogFile="false" />
+  
+  <include file="classpath:config/liquibase/changelog/image.xml" relativeToChangelogFile="false" />
 </databaseChangeLog>
