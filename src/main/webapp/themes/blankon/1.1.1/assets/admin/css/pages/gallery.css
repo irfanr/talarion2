@@ -52,7 +52,7 @@
 }
 #gallery {
   margin-top: 20px;
-  min-height: 1300px;
+  /*min-height: 1300px;*/
 }
 #gallery .mix {
   text-align: left;

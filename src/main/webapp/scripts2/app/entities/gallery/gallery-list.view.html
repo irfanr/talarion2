@@ -16,21 +16,36 @@
 <div class="body-content animated fadeIn">
     <div class="row">
 
-        <ul id="gallery">
+        <div class="col-sm-12">
+            <button class="btn btn-sm btn-success" type="button" ui-sref="gallery-create">
+                <i class="fa fa-plus"></i>
+                &nbsp; Create New
+            </button>
+        </div>
 
-          <li class="mix category-animal" data-value="4" style="display: inline-block;" ng-repeat="image in imageList">
-              <div class="gallery-item rounded shadow">
-                  <a class="gallery-img" href="javascript:void(0);"><img alt="..." class="img-responsive full-width" src="{{image.uri}}"></a>
-                  <div class="gallery-details">
-                      <div class="gallery-summary">
-                          <p>{{image.name}}</p>
-                      </div>
-                  </div>
-              </div>
-              <!-- /.gallery-item -->
-          </li>
+        <div class="col-sm-12">
 
-        </ul>
+            <ul id="gallery">
+
+                <li class="mix category-animal" data-value="4" ng-repeat="image in imageList" style="display: inline-block;">
+                    <div class="gallery-item rounded shadow">
+                        <a class="gallery-img" href="javascript:void(0);"><img alt="..." class="img-responsive full-width" src="{{image.uri}}"></a>
+                        <div class="gallery-details">
+                            <div class="gallery-summary">
+                                <p>{{image.name}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.gallery-item -->
+                </li>
+
+            </ul>
+
+            <div class="col-sm-12 text-center" ng-show="page < totalPages">
+              <button type="button" class="btn btn-primary btn-lg btn-block" ng-click="callServer(null)">Load More ...</button>
+            </div>
+
+        </div>
 
     </div>
 
