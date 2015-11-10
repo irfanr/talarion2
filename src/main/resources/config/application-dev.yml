@@ -53,7 +53,9 @@ image:
       url: http://localhost:8080
       path:
         system: user.dir   
-        relative: /assets/images/profiles/
+        relative:
+          gallery: /assets/images/gallery/
+          profile: /assets/images/profiles/
 
 # ===================================================================
 # JHipster specific properties
