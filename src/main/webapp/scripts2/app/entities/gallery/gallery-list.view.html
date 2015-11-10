@@ -13,7 +13,7 @@
         </ol>
     </div>
 </div>
-<div class="body-content animated fadeIn">
+<div class="body-content animated fadeIn" ng-cloak>
     <div class="row">
 
         <div class="col-sm-12">
@@ -21,30 +21,48 @@
                 <i class="fa fa-plus"></i>
                 &nbsp; Create New
             </button>
+            <p></p>
         </div>
 
-        <div class="col-sm-12">
+        <!-- <div class="col-lg-3 col-md-4 col-xs-6 thumb panel panel-default" ng-repeat="image in imageList">
+            <div class="panel-heading">
+                <div class="pull-left">
+                    <h3 class="panel-title">{{image.name}}</h3>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="panel-body">
+                <a class="" href="javascript:void(0);">
+                    <img alt="..." class="img-responsive" ng-src="{{image.uri}}">
+                </a>
+            </div>
+        </div> -->
 
-            <ul id="gallery">
+        <!-- <div class="col-lg-3 col-md-4 col-xs-6 thumb" ng-repeat="image in imageList">
+            <a class="thumbnail" href="#">
+                <img alt="" class="img-responsive" src="{{image.uri}}">
+            </a>
+        </div> -->
 
-                <li class="mix category-animal" data-value="4" ng-repeat="image in imageList" style="display: inline-block;">
-                    <div class="gallery-item rounded shadow">
-                        <a class="gallery-img" href="javascript:void(0);"><img alt="..." class="img-responsive full-width" src="{{image.uri}}"></a>
-                        <div class="gallery-details">
-                            <div class="gallery-summary">
-                                <p>{{image.name}}</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.gallery-item -->
-                </li>
-
-            </ul>
-
-            <div class="col-sm-12 text-center" ng-show="page < totalPages">
-              <button type="button" class="btn btn-primary btn-lg btn-block" ng-click="callServer(null)">Load More ...</button>
+        <div class="col-lg-3 col-md-4 col-xs-6 thumb " ng-repeat="image in imageList">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{image.name}}</h3>
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <a class="thumbnail" href="#">
+                        <img alt="" class="img-responsive" ng-src="{{image.uri}}">
+                    </a>
+                </div>
+                <!-- /.panel-body -->
             </div>
 
+        </div>
+        <!-- /.gallery-item -->
+
+        <div class="col-sm-12 text-center" ng-show="page < totalPages">
+            <button class="btn btn-primary btn-lg btn-block" ng-click="callServer(null)" type="button">Load More ...</button>
         </div>
 
     </div>

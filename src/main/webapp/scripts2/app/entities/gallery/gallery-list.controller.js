@@ -28,7 +28,7 @@ angular.module('talarion2App')
 
             Image.query({
                 page: $scope.page,
-                size: 12,
+                size: 9,
                 name: nameSearchCrit
             }, function(result, headers) {
                 $scope.links = ParseLinks.parse(headers('link'));
