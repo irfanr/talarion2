@@ -12,7 +12,7 @@ angular.module('talarion2App')
                 },
                 views: {
                     'content@': {
-                        templateUrl: 'scripts2/app/entities/book/books.html',
+                        templateUrl: 'scripts/app/entities/book/books.html',
                         controller: 'BookController'
                     }
                 },
@@ -33,7 +33,7 @@ angular.module('talarion2App')
                 },
                 views: {
                     'content@': {
-                        templateUrl: 'scripts2/app/entities/book/book-detail.html',
+                        templateUrl: 'scripts/app/entities/book/book-detail.html',
                         controller: 'BookDetailController'
                     }
                 },
@@ -55,7 +55,7 @@ angular.module('talarion2App')
                 },
                 onEnter: ['$stateParams', '$state', '$modal', function($stateParams, $state, $modal) {
                     $modal.open({
-                        templateUrl: 'scripts2/app/entities/book/book-dialog.html',
+                        templateUrl: 'scripts/app/entities/book/book-dialog.html',
                         controller: 'BookDialogController',
                         size: 'lg',
                         resolve: {
@@ -84,9 +84,32 @@ angular.module('talarion2App')
                 },
                 onEnter: ['$stateParams', '$state', '$modal', function($stateParams, $state, $modal) {
                     $modal.open({
-                        templateUrl: 'scripts2/app/entities/book/book-dialog.html',
+                        templateUrl: 'scripts/app/entities/book/book-dialog.html',
                         controller: 'BookDialogController',
                         size: 'lg',
+                        resolve: {
+                            entity: ['Book', function(Book) {
+                                return Book.get({id : $stateParams.id});
+                            }]
+                        }
+                    }).result.then(function(result) {
+                        $state.go('book', null, { reload: true });
+                    }, function() {
+                        $state.go('^');
+                    })
+                }]
+            })
+            .state('book.delete', {
+                parent: 'book',
+                url: '/{id}/delete',
+                data: {
+                    authorities: ['ROLE_USER'],
+                },
+                onEnter: ['$stateParams', '$state', '$modal', function($stateParams, $state, $modal) {
+                    $modal.open({
+                        templateUrl: 'scripts/app/entities/book/book-delete-dialog.html',
+                        controller: 'BookDeleteController',
+                        size: 'md',
                         resolve: {
                             entity: ['Book', function(Book) {
                                 return Book.get({id : $stateParams.id});

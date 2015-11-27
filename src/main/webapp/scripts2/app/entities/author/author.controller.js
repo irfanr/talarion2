@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('talarion2App')
-    .controller('AuthorController', function ($scope, Author, ParseLinks) {
+    .controller('AuthorController', function ($scope, $state, $modal, Author, ParseLinks) {
+
         $scope.authors = [];
         $scope.page = 0;
         $scope.loadAll = function() {
@@ -16,21 +17,6 @@ angular.module('talarion2App')
         };
         $scope.loadAll();
 
-        $scope.delete = function (id) {
-            Author.get({id: id}, function(result) {
-                $scope.author = result;
-                $('#deleteAuthorConfirmation').modal('show');
-            });
-        };
-
-        $scope.confirmDelete = function (id) {
-            Author.delete({id: id},
-                function () {
-                    $scope.loadAll();
-                    $('#deleteAuthorConfirmation').modal('hide');
-                    $scope.clear();
-                });
-        };
 
         $scope.refresh = function () {
             $scope.loadAll();

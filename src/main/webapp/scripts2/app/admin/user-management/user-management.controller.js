@@ -30,20 +30,6 @@ angular.module('talarion2App')
             });
         };
 
-        $scope.showUpdate = function (login) {
-            User.get({login: login}, function (result) {
-                $scope.user = result;
-                $('#saveUserModal').modal('show');
-            });
-        };
-
-        $scope.save = function () {
-            User.update($scope.user,
-                function () {
-                    $scope.refresh();
-                });
-        };
-
         $scope.refresh = function () {
             $scope.loadAll();
             $('#saveUserModal').modal('hide');

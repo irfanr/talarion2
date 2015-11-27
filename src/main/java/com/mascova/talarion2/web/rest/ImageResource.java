@@ -197,7 +197,8 @@ public class ImageResource {
   public ResponseEntity<User> uploadImageFileProfile(@RequestParam("file") MultipartFile file)
       throws IOException {
 
-    User currentLoggedUser = userRepository.findOne(SecurityUtils.getCurrentUserId());
+    User currentLoggedUser = userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin())
+        .get();
 
     byte[] bytes;
 

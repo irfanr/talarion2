@@ -12,7 +12,7 @@ angular.module('talarion2App')
                 },
                 views: {
                     'content@': {
-                        templateUrl: 'scripts2/app/entities/author/authors.html',
+                        templateUrl: 'scripts/app/entities/author/authors.html',
                         controller: 'AuthorController'
                     }
                 },
@@ -33,7 +33,7 @@ angular.module('talarion2App')
                 },
                 views: {
                     'content@': {
-                        templateUrl: 'scripts2/app/entities/author/author-detail.html',
+                        templateUrl: 'scripts/app/entities/author/author-detail.html',
                         controller: 'AuthorDetailController'
                     }
                 },
@@ -55,7 +55,7 @@ angular.module('talarion2App')
                 },
                 onEnter: ['$stateParams', '$state', '$modal', function($stateParams, $state, $modal) {
                     $modal.open({
-                        templateUrl: 'scripts2/app/entities/author/author-dialog.html',
+                        templateUrl: 'scripts/app/entities/author/author-dialog.html',
                         controller: 'AuthorDialogController',
                         size: 'lg',
                         resolve: {
@@ -82,9 +82,32 @@ angular.module('talarion2App')
                 },
                 onEnter: ['$stateParams', '$state', '$modal', function($stateParams, $state, $modal) {
                     $modal.open({
-                        templateUrl: 'scripts2/app/entities/author/author-dialog.html',
+                        templateUrl: 'scripts/app/entities/author/author-dialog.html',
                         controller: 'AuthorDialogController',
                         size: 'lg',
+                        resolve: {
+                            entity: ['Author', function(Author) {
+                                return Author.get({id : $stateParams.id});
+                            }]
+                        }
+                    }).result.then(function(result) {
+                        $state.go('author', null, { reload: true });
+                    }, function() {
+                        $state.go('^');
+                    })
+                }]
+            })
+            .state('author.delete', {
+                parent: 'author',
+                url: '/{id}/delete',
+                data: {
+                    authorities: ['ROLE_USER'],
+                },
+                onEnter: ['$stateParams', '$state', '$modal', function($stateParams, $state, $modal) {
+                    $modal.open({
+                        templateUrl: 'scripts/app/entities/author/author-delete-dialog.html',
+                        controller: 'AuthorDeleteController',
+                        size: 'md',
                         resolve: {
                             entity: ['Author', function(Author) {
                                 return Author.get({id : $stateParams.id});

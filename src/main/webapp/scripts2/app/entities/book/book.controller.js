@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('talarion2App')
-    .controller('BookController', function ($scope, Book, ParseLinks) {
+    .controller('BookController', function ($scope, $state, $modal, Book, ParseLinks) {
+
         $scope.books = [];
         $scope.page = 0;
         $scope.loadAll = function() {
@@ -16,21 +17,6 @@ angular.module('talarion2App')
         };
         $scope.loadAll();
 
-        $scope.delete = function (id) {
-            Book.get({id: id}, function(result) {
-                $scope.book = result;
-                $('#deleteBookConfirmation').modal('show');
-            });
-        };
-
-        $scope.confirmDelete = function (id) {
-            Book.delete({id: id},
-                function () {
-                    $scope.loadAll();
-                    $('#deleteBookConfirmation').modal('hide');
-                    $scope.clear();
-                });
-        };
 
         $scope.refresh = function () {
             $scope.loadAll();

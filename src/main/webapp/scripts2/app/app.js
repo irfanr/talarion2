@@ -1,13 +1,29 @@
 'use strict';
 
 angular.module('talarion2App', ['LocalStorageModule', 'tmh.dynamicLocale', 'pascalprecht.translate',
-               'ui.bootstrap', // for modal dialogs
-    'ngResource', 'ui.router', 'ngCookies', 'ngAria', 'ngCacheBuster', 'ngFileUpload', 'infinite-scroll','smart-table','angular-growl','angucomplete-alt'])
+    'ui.bootstrap', // for modal dialogs
+    'ngResource', 'ui.router', 'ngCookies', 'ngAria', 'ngCacheBuster', 'ngFileUpload', 'infinite-scroll', 'smart-table', 'angular-growl', 'angucomplete-alt', 'angular-loading-bar'
+])
 
-    .run(function ($rootScope, $location, $window, $http, $state, $translate, Language, Auth, Principal, ENV, VERSION) {
+.run(function($rootScope, $location, $window, $http, $state, $translate, Language, Auth, Principal, ENV, VERSION) {
+
+        // update the window title using params in the following
+        // precendence
+        // 1. titleKey parameter
+        // 2. $state.$current.data.pageTitle (current state page title)
+        // 3. 'global.title'
+        var updateTitle = function(titleKey) {
+            if (!titleKey && $state.$current.data && $state.$current.data.pageTitle) {
+                titleKey = $state.$current.data.pageTitle;
+            }
+            $translate(titleKey || 'global.title').then(function(title) {
+                $window.document.title = title;
+            });
+        };
+
         $rootScope.ENV = ENV;
         $rootScope.VERSION = VERSION;
-        $rootScope.$on('$stateChangeStart', function (event, toState, toStateParams) {
+        $rootScope.$on('$stateChangeStart', function(event, toState, toStateParams) {
             $rootScope.toState = toState;
             $rootScope.toStateParams = toStateParams;
 
@@ -16,33 +32,33 @@ angular.module('talarion2App', ['LocalStorageModule', 'tmh.dynamicLocale', 'pasc
             }
 
             // Update the language
-            Language.getCurrent().then(function (language) {
+            Language.getCurrent().then(function(language) {
                 $translate.use(language);
             });
 
         });
 
-        $rootScope.$on('$stateChangeSuccess',  function(event, toState, toParams, fromState, fromParams) {
-            var titleKey = 'global.title' ;
+        $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
+            var titleKey = 'global.title';
 
             // Remember previous state unless we've been redirected to login or we've just
             // reset the state memory after logout. If we're redirected to login, our
             // previousState is already set in the authExpiredInterceptor. If we're going
             // to login directly, we don't want to be sent to some previous state anyway
             if (toState.name != 'login' && $rootScope.previousStateName) {
-              $rootScope.previousStateName = fromState.name;
-              $rootScope.previousStateParams = fromParams;
+                $rootScope.previousStateName = fromState.name;
+                $rootScope.previousStateParams = fromParams;
             }
 
             // Set the page title key to the one configured in state or use default one
             if (toState.data.pageTitle) {
                 titleKey = toState.data.pageTitle;
             }
+            updateTitle(titleKey);
 
-            $translate(titleKey).then(function (title) {
-                // Change window title with translated one
-                $window.document.title = title;
-            });
+            // if the current translation changes, update the window title
+            $rootScope.$on('$translateChangeSuccess', function() { updateTitle(); });
+
 
         });
 
@@ -55,7 +71,9 @@ angular.module('talarion2App', ['LocalStorageModule', 'tmh.dynamicLocale', 'pasc
             }
         };
     })
-    .config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider, $translateProvider, tmhDynamicLocaleProvider, httpRequestInterceptorCacheBusterProvider, growlProvider) {
+    .config(function($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider, $translateProvider, tmhDynamicLocaleProvider, httpRequestInterceptorCacheBusterProvider, growlProvider) {
+      // uncomment below to make alerts look like toast
+      //AlertServiceProvider.showAsToast(true);
 
         //enable CSRF
         $httpProvider.defaults.xsrfCookieName = 'CSRF-TOKEN';
@@ -75,11 +93,11 @@ angular.module('talarion2App', ['LocalStorageModule', 'tmh.dynamicLocale', 'pasc
             },
             resolve: {
                 authorize: ['Auth',
-                    function (Auth) {
+                    function(Auth) {
                         return Auth.authorize();
                     }
                 ],
-                translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                translatePartialLoader: ['$translate', '$translatePartialLoader', function($translate, $translatePartialLoader) {
                     $translatePartialLoader.addPart('global');
                 }]
             }
@@ -108,11 +126,19 @@ angular.module('talarion2App', ['LocalStorageModule', 'tmh.dynamicLocale', 'pasc
     })
     .config(['$urlMatcherFactoryProvider', function($urlMatcherFactory) {
         $urlMatcherFactory.type('boolean', {
-            name : 'boolean',
-            decode: function(val) { return val == true ? true : val == "true" ? true : false },
-            encode: function(val) { return val ? 1 : 0; },
-            equals: function(a, b) { return this.is(a) && a === b; },
-            is: function(val) { return [true,false,0,1].indexOf(val) >= 0 },
+            name: 'boolean',
+            decode: function(val) {
+                return val == true ? true : val == "true" ? true : false
+            },
+            encode: function(val) {
+                return val ? 1 : 0;
+            },
+            equals: function(a, b) {
+                return this.is(a) && a === b;
+            },
+            is: function(val) {
+                return [true, false, 0, 1].indexOf(val) >= 0
+            },
             pattern: /bool|true|0|1/
         });
     }]);;

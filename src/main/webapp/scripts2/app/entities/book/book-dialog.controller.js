@@ -12,16 +12,22 @@ angular.module('talarion2App').controller('BookDialogController',
             });
         };
 
-        var onSaveFinished = function (result) {
+        var onSaveSuccess = function (result) {
             $scope.$emit('talarion2App:bookUpdate', result);
             $modalInstance.close(result);
+            $scope.isSaving = false;
+        };
+
+        var onSaveError = function (result) {
+            $scope.isSaving = false;
         };
 
         $scope.save = function () {
+            $scope.isSaving = true;
             if ($scope.book.id != null) {
-                Book.update($scope.book, onSaveFinished);
+                Book.update($scope.book, onSaveSuccess, onSaveError);
             } else {
-                Book.save($scope.book, onSaveFinished);
+                Book.save($scope.book, onSaveSuccess, onSaveError);
             }
         };
 
