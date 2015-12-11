@@ -1,0 +1,56 @@
+<div class="header-content">
+    <h2>
+        <i class="fa fa-cogs"></i>Create Document
+    </h2>
+    <div class="breadcrumb-wrapper hidden-xs">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+            <li>
+                <i class="fa fa-cogs"></i>
+                Profile
+                <i class="fa fa-angle-right"></i>
+            </li>
+        </ol>
+    </div>
+</div>
+<div class="body-content animated fadeIn">
+
+    <div class="row">
+
+        <div class="col-lg-12 col-md-12 col-smnt-12">
+
+            <div class="panel rounded shadow">
+                <div class="panel-body">
+                    <div class="inner-all">
+                        <form name="myForm">
+                            <ul class="list-unstyled">
+                                <li>
+                                    <input class="btn btn-success text-center btn-block" name="file" ng-model="picFile" ngf-max-size="2MB" ngf-select required type="file">
+                                    <i ng-show="myForm.file.$error.required">*required</i><br>
+                                    <i ng-show="myForm.file.$error.maxSize">File too large
+                                        {{picFile.size / 1000000|number:1}}MB: max 2M</i>
+                                    <img class="thumb" ng-show="myForm.file.$valid" ngf-thumbnail="picFile">
+                                    <button class="btn btn-danger text-center btn-block" ng-click="picFile = null" ng-show="picFile">Remove</button>
+                                    <br>
+                                    <button class="btn btn-primary text-center btn-block" ng-click="uploadPic(picFile)" ng-disabled="!myForm.$valid">Submit</button>
+                                    <span class="progress" ng-show="picFile.progress >= 0">
+                                        <div ng-bind="picFile.progress + '%'" style="width:{{picFile.progress}}%"></div>
+                                    </span>
+                                    <span ng-show="picFile.result">Upload Successful</span>
+                                    <span class="err" ng-show="errorMsg">{{errorMsg}}</span>
+                                </li>
+                            </ul>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- /.panel -->
+
+        </div>
+
+    </div>
+
+</div>
+<footer class="footer-content">
+    2015 &copy; Mascova
+</footer>

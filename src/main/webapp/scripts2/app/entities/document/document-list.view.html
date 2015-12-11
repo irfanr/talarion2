@@ -1,0 +1,74 @@
+<div class="header-content">
+    <h2>
+        <i class="fa fa-cogs"></i>Document
+    </h2>
+    <div class="breadcrumb-wrapper hidden-xs">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+            <li>
+                <i class="fa fa-cogs"></i>
+                Document
+                <i class="fa fa-angle-right"></i>
+            </li>
+        </ol>
+    </div>
+</div>
+<div class="body-content animated fadeIn" ng-cloak>
+    <div class="row">
+
+        <div class="col-sm-12">
+            <button class="btn btn-sm btn-success" type="button" ui-sref="document-create">
+                <i class="fa fa-plus"></i>
+                &nbsp; Create New
+            </button>
+            <p></p>
+        </div>
+
+        <!-- <div class="col-lg-3 col-md-4 col-xs-6 thumb panel panel-default" ng-repeat="image in imageList">
+            <div class="panel-heading">
+                <div class="pull-left">
+                    <h3 class="panel-title">{{image.name}}</h3>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="panel-body">
+                <a class="" href="javascript:void(0);">
+                    <img alt="..." class="img-responsive" ng-src="{{image.uri}}">
+                </a>
+            </div>
+        </div> -->
+
+        <!-- <div class="col-lg-3 col-md-4 col-xs-6 thumb" ng-repeat="image in imageList">
+            <a class="thumbnail" href="#">
+                <img alt="" class="img-responsive" src="{{image.uri}}">
+            </a>
+        </div> -->
+
+        <div class="col-lg-3 col-md-4 col-xs-6 thumb " ng-repeat="image in imageList">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{image.name}}</h3>
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <a class="thumbnail" href="#">
+                        <img alt="" class="img-responsive" ng-src="{{image.uri}}">
+                    </a>
+                </div>
+                <!-- /.panel-body -->
+            </div>
+
+        </div>
+        <!-- /.document-item -->
+
+        <div class="col-sm-12 text-center" ng-show="page < totalPages">
+            <button class="btn btn-primary btn-lg btn-block" ng-click="callServer(null)" type="button">Load More ...</button>
+        </div>
+
+    </div>
+
+    <!-- /.row -->
+</div>
+<footer class="footer-content">
+    2015 &copy; Mascova
+</footer>

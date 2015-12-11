@@ -49,6 +49,22 @@ server:
         enabled: true
         mime-types: text/html,text/xml,text/plain,text/css, application/javascript, application/json
 
+image:
+    host:
+      url: http://localhost:8080
+      path:
+        system: user.dir   
+        relative:
+          gallery: /assets/images/gallery/
+          profile: /assets/images/profiles/
+          
+file:
+    host:
+      url: http://localhost:8080
+      path:
+        system: user.dir   
+        relative:
+          document: assets/files/documents/
 # ===================================================================
 # JHipster specific properties
 # ===================================================================
