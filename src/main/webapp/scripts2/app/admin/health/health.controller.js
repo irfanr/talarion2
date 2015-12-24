@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('talarion2App')
-    .controller('HealthController', function ($scope, MonitoringService, $modal) {
+    .controller('HealthController', function ($scope, MonitoringService, $uibModal) {
         $scope.updatingHealth = true;
         $scope.separator = '.';
 
@@ -62,8 +62,8 @@ angular.module('talarion2App')
 
 
         $scope.showHealth = function(health) {
-            var modalInstance = $modal.open({
-                templateUrl: 'scripts2/app/admin/health/health.modal.html',
+            var modalInstance = $uibModal.open({
+                templateUrl: 'scripts/app/admin/health/health.modal.html',
                 controller: 'HealthModalController',
                 size: 'lg',
                 resolve: {

@@ -2,7 +2,8 @@
 
 angular.module('talarion2App', ['LocalStorageModule', 'tmh.dynamicLocale', 'pascalprecht.translate',
     'ui.bootstrap', // for modal dialogs
-    'ngResource', 'ui.router', 'ngCookies', 'ngAria', 'ngCacheBuster', 'ngFileUpload', 'infinite-scroll', 'smart-table', 'angular-growl', 'angucomplete-alt', 'angular-loading-bar'
+    'ngResource', 'ui.router', 'ngCookies', 'ngAria', 'ngCacheBuster', 'ngFileUpload', // jhipster-needle-angularjs-add-module JHipster will add new module
+    'infinite-scroll', 'smart-table', 'angular-growl', 'angucomplete-alt', 'angular-loading-bar'
 ])
 
 .run(function($rootScope, $location, $window, $http, $state, $translate, Language, Auth, Principal, ENV, VERSION) {
@@ -57,7 +58,9 @@ angular.module('talarion2App', ['LocalStorageModule', 'tmh.dynamicLocale', 'pasc
             updateTitle(titleKey);
 
             // if the current translation changes, update the window title
-            $rootScope.$on('$translateChangeSuccess', function() { updateTitle(); });
+            $rootScope.$on('$translateChangeSuccess', function() {
+                updateTitle();
+            });
 
 
         });
@@ -72,8 +75,8 @@ angular.module('talarion2App', ['LocalStorageModule', 'tmh.dynamicLocale', 'pasc
         };
     })
     .config(function($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider, $translateProvider, tmhDynamicLocaleProvider, httpRequestInterceptorCacheBusterProvider, growlProvider) {
-      // uncomment below to make alerts look like toast
-      //AlertServiceProvider.showAsToast(true);
+        // uncomment below to make alerts look like toast
+        //AlertServiceProvider.showAsToast(true);
 
         //enable CSRF
         $httpProvider.defaults.xsrfCookieName = 'CSRF-TOKEN';
@@ -124,6 +127,7 @@ angular.module('talarion2App', ['LocalStorageModule', 'tmh.dynamicLocale', 'pasc
         growlProvider.globalTimeToLive(3000);
 
     })
+    // jhipster-needle-angularjs-add-config JHipster will add new application configuration
     .config(['$urlMatcherFactoryProvider', function($urlMatcherFactory) {
         $urlMatcherFactory.type('boolean', {
             name: 'boolean',
@@ -141,4 +145,4 @@ angular.module('talarion2App', ['LocalStorageModule', 'tmh.dynamicLocale', 'pasc
             },
             pattern: /bool|true|0|1/
         });
-    }]);;
+    }]);

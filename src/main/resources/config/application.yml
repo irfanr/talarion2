@@ -50,7 +50,7 @@ jhipster:
     security:
         rememberme:
             # security key (this key should be unique for your application, and kept secret)
-            key: 9a49baeeb2b09bcca226c086d7f56ae53be2e3ad
+            key: 4cd09c08af6323a08eac77968f2b1c57dda57465
     swagger:
         title: talarion2 API
         description: talarion2 API documentation

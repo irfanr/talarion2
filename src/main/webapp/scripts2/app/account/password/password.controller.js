@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('talarion2App')
-    .controller('PasswordController', function ($scope, Auth, Principal) {
+    .controller('PasswordController', function($scope, Auth, Principal) {
         Principal.identity().then(function(account) {
             $scope.account = account;
         });
@@ -9,15 +9,17 @@ angular.module('talarion2App')
         $scope.success = null;
         $scope.error = null;
         $scope.doNotMatch = null;
-        $scope.changePassword = function () {
+        $scope.changePassword = function() {
             if ($scope.password !== $scope.confirmPassword) {
+                $scope.error = null;
+                $scope.success = null;
                 $scope.doNotMatch = 'ERROR';
             } else {
                 $scope.doNotMatch = null;
-                Auth.changePassword($scope.password).then(function () {
+                Auth.changePassword($scope.password).then(function() {
                     $scope.error = null;
                     $scope.success = 'OK';
-                }).catch(function () {
+                }).catch(function() {
                     $scope.success = null;
                     $scope.error = 'ERROR';
                 });

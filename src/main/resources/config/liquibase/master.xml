@@ -4,6 +4,8 @@
 
   <include file="classpath:config/liquibase/changelog/00000000000000_initial_schema.xml"
     relativeToChangelogFile="false" />
+  <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+
   <include file="classpath:config/liquibase/changelog/20151103161807_added_entity_Author.xml"
     relativeToChangelogFile="false" />
   <include file="classpath:config/liquibase/changelog/20151103162002_added_entity_Book.xml"
@@ -16,7 +18,7 @@
   <include file="classpath:config/liquibase/changelog/village.xml" relativeToChangelogFile="false" />
   <include file="classpath:config/liquibase/changelog/category.xml" relativeToChangelogFile="false" />
   <include file="classpath:config/liquibase/changelog/product.xml" relativeToChangelogFile="false" />
-  
+
   <include file="classpath:config/liquibase/changelog/image.xml" relativeToChangelogFile="false" />
   <include file="classpath:config/liquibase/changelog/document.xml" relativeToChangelogFile="false" />
 </databaseChangeLog>

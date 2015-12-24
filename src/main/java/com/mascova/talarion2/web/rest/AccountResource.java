@@ -32,6 +32,7 @@ import com.mascova.talarion2.service.MailService;
 import com.mascova.talarion2.service.UserService;
 import com.mascova.talarion2.web.rest.dto.KeyAndPasswordDTO;
 import com.mascova.talarion2.web.rest.dto.UserDTO;
+import com.mascova.talarion2.web.rest.util.HeaderUtil;
 
 /**
  * REST controller for managing the current user's account.
@@ -126,6 +127,17 @@ public class AccountResource {
   @RequestMapping(value = "/account", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
   @Timed
   public ResponseEntity<String> saveAccount(@RequestBody UserDTO userDTO) {
+
+    Optional<User> existingUser = userRepository.findOneByEmail(userDTO.getEmail());
+    if (existingUser.isPresent()
+        && (!existingUser.get().getLogin().equalsIgnoreCase(userDTO.getLogin()))) {
+      return ResponseEntity
+          .badRequest()
+          .headers(
+              HeaderUtil.createFailureAlert("user-management", "emailexists",
+                  "Email already in use")).body(null);
+    }
+
     return userRepository
         .findOneByLogin(SecurityUtils.getCurrentUser().getUsername())
         .map(
