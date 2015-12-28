@@ -1837,7 +1837,7 @@ body.page-footer-fixed #page-content .footer-content {
 .body-content {
   background-color: #eeeeef;
   padding: 20px 20px 0px 20px;
-  min-height: 1246px;
+ /* min-height: 1246px; */
   position: relative;
 }
 /* ========================================================================
