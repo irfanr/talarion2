@@ -8,7 +8,7 @@ angular.module('talarion2App')
                 var language = $translate.storage().get('NG_TRANSLATE_LANG_KEY');
 
                 if (angular.isUndefined(language)) {
-                    language = 'en';
+                    language = 'id';
                 }
 
                 deferred.resolve(language);
@@ -27,7 +27,7 @@ angular.module('talarion2App')
  They are written in English to avoid character encoding issues (not a perfect solution)
  */
     .constant('LANGUAGES', [
-        'en', 'fr'
+        'en', 'fr' , 'id'
         // jhipster-needle-006 - JHipster will add new languages here
     ]
 );

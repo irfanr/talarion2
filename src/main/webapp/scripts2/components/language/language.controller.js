@@ -33,7 +33,8 @@ angular.module('talarion2App')
                 "sv": "Svenska",
                 "tr": "Türkçe",
                 "zh-cn": "中文（简体）",
-                "zh-tw": "繁體中文"
+                "zh-tw": "繁體中文",
+                "id": "Bahasa",
             }[lang];
         }
     });

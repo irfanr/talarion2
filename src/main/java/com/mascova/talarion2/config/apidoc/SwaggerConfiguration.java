@@ -29,7 +29,7 @@ import com.mascova.talarion2.config.JHipsterProperties;
  */
 @Configuration
 @EnableSwagger2
-@Profile("!" + Constants.SPRING_PROFILE_PRODUCTION)
+@Profile(Constants.SPRING_PROFILE_SWAGGER)
 public class SwaggerConfiguration {
 
   private final Logger log = LoggerFactory.getLogger(SwaggerConfiguration.class);
@@ -40,7 +40,7 @@ public class SwaggerConfiguration {
    * Swagger Springfox configuration.
    */
   @Bean
-  @Profile("!" + Constants.SPRING_PROFILE_FAST)
+  @Profile(Constants.SPRING_PROFILE_SWAGGER)
   public Docket swaggerSpringfoxDocket(JHipsterProperties jHipsterProperties) {
     log.debug("Starting Swagger");
     StopWatch watch = new StopWatch();
