@@ -89,9 +89,11 @@ angular.module('talarion2App')
 
                 });
 
-                element.click(function() {
+                element.bind('click', function() {
 
-                    if ($('body').is('.page-sidebar-minimize', '.page-sidebar-minimize-auto')) {
+                  // console.log('clicked');
+
+                    if ($('body').is('.page-sidebar-left-show')) {
                         $('body').removeClass('page-sidebar-left-show');
                     }
 
