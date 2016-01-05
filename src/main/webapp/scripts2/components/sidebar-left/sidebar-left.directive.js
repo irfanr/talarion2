@@ -67,4 +67,36 @@ angular.module('talarion2App')
                 //
                 // }
         };
+    })
+    .directive('preventBloat', function($rootScope, Principal) {
+        return {
+            restrict: 'A',
+            link: function(scope, element, attrs) {
+
+                element.bind("mouseenter", function() {
+                    if ($('body').hasClass('page-sidebar-minimize')) {
+                        element.width(220);
+                        // console.log("enter");
+                    }
+
+                });
+
+                element.bind("mouseleave", function() {
+                    if ($('body').hasClass('page-sidebar-minimize')) {
+                        element.width(75);
+                        // console.log("leave");
+                    }
+
+                });
+
+                element.click(function() {
+
+                    if ($('body').hasClass('page-sidebar-left-show')) {
+                        $('body').removeClass('page-sidebar-left-show');
+                    }
+
+                });
+
+            }
+        };
     });

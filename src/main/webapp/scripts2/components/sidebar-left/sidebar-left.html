@@ -52,7 +52,7 @@
 </div>
 
 <ul class="sidebar-menu" ng-switch="isAuthenticated()">
-    <li ui-sref-active="active">
+    <li ui-sref-active="active" prevent-bloat>
         <a ui-sref="home">
             <span class="icon">
                 <i class="fa fa-home"></i>
@@ -66,7 +66,7 @@
             <span class="glyphicon glyphicon-folder-open"></span>
         </span>
     </li>
-    <li ng-switch-when="true" ui-sref-active="active">
+    <li ng-switch-when="true" ui-sref-active="active" prevent-bloat>
         <a ui-sref="category">
             <span class="icon">
                 <i class="fa fa-list"></i>
@@ -74,7 +74,7 @@
             <span class="text">Category</span>
         </a>
     </li>
-    <li ng-switch-when="true" ui-sref-active="active">
+    <li ng-switch-when="true" ui-sref-active="active" prevent-bloat>
         <a ui-sref="product">
             <span class="icon">
                 <i class="fa fa-square"></i>
@@ -98,7 +98,7 @@
             <span class="text">Gallery</span>
         </a>
     </li> -->
-    <li ng-switch-when="true" ui-sref-active="active">
+    <li ng-switch-when="true" ui-sref-active="active" prevent-bloat>
         <a ui-sref="province">
             <span class="icon">
                 <i class="fa fa-map-pin"></i>
@@ -106,7 +106,7 @@
             <span class="text">Province</span>
         </a>
     </li>
-    <li ng-switch-when="true" ui-sref-active="active">
+    <li ng-switch-when="true" ui-sref-active="active" prevent-bloat>
         <a ui-sref="district">
             <span class="icon">
                 <i class="fa fa-map-pin"></i>
@@ -114,7 +114,7 @@
             <span class="text">District</span>
         </a>
     </li>
-    <li ng-switch-when="true" ui-sref-active="active">
+    <li ng-switch-when="true" ui-sref-active="active" prevent-bloat>
         <a ui-sref="subDistrict">
             <span class="icon">
                 <i class="fa fa-map-pin"></i>
@@ -122,7 +122,7 @@
             <span class="text">Sub District</span>
         </a>
     </li>
-    <li ng-switch-when="true" ui-sref-active="active">
+    <li ng-switch-when="true" ui-sref-active="active" prevent-bloat>
         <a ui-sref="village">
             <span class="icon">
                 <i class="fa fa-map-pin"></i>
@@ -130,7 +130,7 @@
             <span class="text">Village</span>
         </a>
     </li>
-    <li ng-switch-when="true" ui-sref-active="active">
+    <li ng-switch-when="true" ui-sref-active="active" prevent-bloat>
         <a ui-sref="gallery">
             <span class="icon">
                 <i class="fa fa-file-image-o"></i>
@@ -138,7 +138,7 @@
             <span class="text">Gallery</span>
         </a>
     </li>
-    <li ng-switch-when="true" ui-sref-active="active">
+    <li ng-switch-when="true" ui-sref-active="active" prevent-bloat>
         <a ui-sref="document">
             <span class="icon">
                 <i class="fa fa fa-folder"></i>
@@ -152,7 +152,7 @@
             <span class="glyphicon glyphicon-transfer"></span>
         </span>
     </li>
-    <li ng-switch-when="true" ui-sref-active="active">
+    <li ng-switch-when="true" ui-sref-active="active" prevent-bloat>
         <a ui-sref="sales-head">
             <span class="icon">
                 <i class="fa fa-money"></i>
@@ -166,7 +166,7 @@
             <span class="glyphicon glyphicon-book"></span>
         </span>
     </li>
-    <li ng-switch-when="true" ui-sref-active="active">
+    <li ng-switch-when="true" ui-sref-active="active" prevent-bloat>
         <a ui-sref="sales-report">
             <span class="icon">
                 <i class="fa fa-money"></i>
@@ -180,7 +180,7 @@
             <span class="glyphicon glyphicon-user"></span>
         </span>
     </li>
-    <li ng-switch-when="true" ui-sref-active="active">
+    <li ng-switch-when="true" ui-sref-active="active" prevent-bloat>
         <a ui-sref="settings">
             <span class="icon">
                 <i class="glyphicon glyphicon-wrench"></i>
@@ -188,7 +188,7 @@
             <span class="text">Settings</span>
         </a>
     </li>
-    <li ng-switch-when="true" ui-sref-active="active">
+    <li ng-switch-when="true" ui-sref-active="active" prevent-bloat>
         <a ui-sref="password">
             <span class="icon">
                 <i class="glyphicon glyphicon glyphicon-lock"></i>
@@ -196,7 +196,7 @@
             <span class="text">Password</span>
         </a>
     </li>
-    <li ng-switch-when="true" ui-sref-active="active">
+    <li ng-switch-when="true" ui-sref-active="active" prevent-bloat>
         <a ui-sref="sessions">
             <span class="icon">
                 <i class="glyphicon glyphicon glyphicon-cloud"></i>
@@ -204,7 +204,7 @@
             <span class="text">Sessions</span>
         </a>
     </li>
-    <li ng-switch-when="true" ui-sref-active="active">
+    <li ng-switch-when="true" ui-sref-active="active" prevent-bloat>
         <a ui-sref="profile">
             <span class="icon">
                 <i class="glyphicon glyphicon-user"></i>
@@ -212,7 +212,7 @@
             <span class="text">Profile</span>
         </a>
     </li>
-    <li ng-switch-when="true" ui-sref-active="active">
+    <li ng-switch-when="true" ui-sref-active="active" prevent-bloat>
         <a href="" ng-click="logout()">
             <span class="icon">
                 <i class="glyphicon glyphicon-log-out"></i>
@@ -220,7 +220,7 @@
             <span class="text">Log Out</span>
         </a>
     </li>
-    <li ng-switch-when="false" ui-sref-active="active">
+    <li ng-switch-when="false" ui-sref-active="active" prevent-bloat>
         <a ui-sref="login">
             <span class="icon">
                 <i class="glyphicon glyphicon-log-in"></i>
@@ -228,7 +228,7 @@
             <span class="text">Authenticate</span>
         </a>
     </li>
-    <li ng-switch-when="false" ui-sref-active="active">
+    <li ng-switch-when="false" ui-sref-active="active" prevent-bloat>
         <a ui-sref="register">
             <span class="icon">
                 <i class="glyphicon glyphicon-plus-sign"></i>
@@ -242,7 +242,7 @@
             <span class="glyphicon glyphicon-tower"></span>
         </span>
     </li>
-    <li has-authority="ROLE_ADMIN" ng-switch-when="true" ui-sref-active="active">
+    <li has-authority="ROLE_ADMIN" ng-switch-when="true" ui-sref-active="active" prevent-bloat>
         <a ui-sref="user-management">
             <span class="icon">
                 <i class="glyphicon glyphicon-user"></i>
@@ -250,7 +250,7 @@
             <span class="text">User management</span>
         </a>
     </li>
-    <li has-authority="ROLE_ADMIN" ng-switch-when="true" ui-sref-active="active">
+    <li has-authority="ROLE_ADMIN" ng-switch-when="true" ui-sref-active="active" prevent-bloat>
         <a ui-sref="metrics">
             <span class="icon">
                 <i class="glyphicon glyphicon-dashboard"></i>
@@ -258,7 +258,7 @@
             <span class="text">Metrics</span>
         </a>
     </li>
-    <li has-authority="ROLE_ADMIN" ng-switch-when="true" ui-sref-active="active">
+    <li has-authority="ROLE_ADMIN" ng-switch-when="true" ui-sref-active="active" prevent-bloat>
         <a ui-sref="health">
             <span class="icon">
                 <i class="glyphicon glyphicon-heart"></i>
@@ -266,7 +266,7 @@
             <span class="text">Health</span>
         </a>
     </li>
-    <li has-authority="ROLE_ADMIN" ng-switch-when="true" ui-sref-active="active">
+    <li has-authority="ROLE_ADMIN" ng-switch-when="true" ui-sref-active="active" prevent-bloat>
         <a ui-sref="configuration">
             <span class="icon">
                 <i class="glyphicon glyphicon-list-alt"></i>
@@ -274,7 +274,7 @@
             <span class="text">Configuration</span>
         </a>
     </li>
-    <li has-authority="ROLE_ADMIN" ng-switch-when="true" ui-sref-active="active">
+    <li has-authority="ROLE_ADMIN" ng-switch-when="true" ui-sref-active="active" prevent-bloat>
         <a ui-sref="audits">
             <span class="icon">
                 <i class="glyphicon glyphicon-bell"></i>
@@ -282,7 +282,7 @@
             <span class="text">Audits</span>
         </a>
     </li>
-    <li has-authority="ROLE_ADMIN" ng-switch-when="true" ui-sref-active="active">
+    <li has-authority="ROLE_ADMIN" ng-switch-when="true" ui-sref-active="active" prevent-bloat>
         <a ui-sref="logs">
             <span class="icon">
                 <i class="glyphicon glyphicon-tasks"></i>
@@ -290,7 +290,7 @@
             <span class="text">Logs</span>
         </a>
     </li>
-    <li has-authority="ROLE_ADMIN" ng-switch-when="true" ui-sref-active="active">
+    <li has-authority="ROLE_ADMIN" ng-switch-when="true" ui-sref-active="active" prevent-bloat>
         <a ui-sref="docs">
             <span class="icon">
                 <i class="glyphicon glyphicon-book"></i>
