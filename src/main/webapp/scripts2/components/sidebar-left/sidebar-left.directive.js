@@ -74,7 +74,7 @@ angular.module('talarion2App')
             link: function(scope, element, attrs) {
 
                 element.bind("mouseenter", function() {
-                    if ($('body').hasClass('page-sidebar-minimize')) {
+                    if ($('body').is('.page-sidebar-minimize', '.page-sidebar-minimize-auto')) {
                         element.width(220);
                         // console.log("enter");
                     }
@@ -82,7 +82,7 @@ angular.module('talarion2App')
                 });
 
                 element.bind("mouseleave", function() {
-                    if ($('body').hasClass('page-sidebar-minimize')) {
+                    if ($('body').is('.page-sidebar-minimize', '.page-sidebar-minimize-auto')) {
                         element.width(75);
                         // console.log("leave");
                     }
@@ -91,7 +91,7 @@ angular.module('talarion2App')
 
                 element.click(function() {
 
-                    if ($('body').hasClass('page-sidebar-left-show')) {
+                    if ($('body').is('.page-sidebar-minimize', '.page-sidebar-minimize-auto')) {
                         $('body').removeClass('page-sidebar-left-show');
                     }
 
