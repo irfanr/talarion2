@@ -22,6 +22,7 @@ import com.mascova.talarion2.security.AjaxAuthenticationFailureHandler;
 import com.mascova.talarion2.security.AjaxAuthenticationSuccessHandler;
 import com.mascova.talarion2.security.AjaxLogoutSuccessHandler;
 import com.mascova.talarion2.security.AuthoritiesConstants;
+import com.mascova.talarion2.security.CustomAccessDeniedHandler;
 import com.mascova.talarion2.security.Http401UnauthorizedEntryPoint;
 import com.mascova.talarion2.web.filter.CsrfCookieGeneratorFilter;
 
@@ -72,6 +73,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
   protected void configure(HttpSecurity http) throws Exception {
     http.csrf().ignoringAntMatchers("/websocket/**").and()
         .addFilterAfter(new CsrfCookieGeneratorFilter(), CsrfFilter.class).exceptionHandling()
+        .accessDeniedHandler(new CustomAccessDeniedHandler())
         .authenticationEntryPoint(authenticationEntryPoint).and().rememberMe()
         .rememberMeServices(rememberMeServices).rememberMeParameter("remember-me")
         .key(env.getProperty("jhipster.security.rememberme.key")).and().formLogin()
