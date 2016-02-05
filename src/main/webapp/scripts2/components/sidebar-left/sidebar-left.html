@@ -1,7 +1,7 @@
 <!-- Start left navigation - profile shortcut -->
 <div class="sidebar-content" ng-show="isAuthenticated()">
     <div class="media">
-        <a class="pull-left has-notif avatar" href="page-profile.html">
+        <a class="pull-left has-notif avatar" ui-sref="profile">
             <img alt="admin" ng-show="account.profileImagePath == null" src="themes/blankon/1.1.1/assets/global/img/avatar/50/26.png">
             <img alt="admin" ng-hide="account.profileImagePath == null" ng-src="{{account.profileImagePath}}">
             <i class="online"></i>

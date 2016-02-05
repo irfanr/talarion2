@@ -231,8 +231,8 @@ public class ImageResource {
 
         file.transferTo(savedFile);
 
-        currentLoggedUser.setProfileImagePath(hostUrl + "/" + relativePath
-            + currentLoggedUser.getLogin() + "." + fileExt);
+        currentLoggedUser.setProfileImagePath(relativePath + currentLoggedUser.getLogin() + "."
+            + fileExt);
         userRepository.save(currentLoggedUser);
 
       } catch (IOException e) {
