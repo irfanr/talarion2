@@ -141,15 +141,16 @@ public class UserResource {
           .badRequest()
           .headers(
               HeaderUtil.createFailureAlert("user-management", "emailexists",
-                  "Email already in use")).body(null);
+                  "E-mail already in use")).body(null);
     }
     existingUser = userRepository.findOneByLogin(managedUserDTO.getLogin());
     if (existingUser.isPresent() && (!existingUser.get().getId().equals(managedUserDTO.getId()))) {
       return ResponseEntity
           .badRequest()
           .headers(
-              HeaderUtil.createFailureAlert("user-management", "userexists",
-                  "Login name already used")).body(null);
+              HeaderUtil
+                  .createFailureAlert("user-management", "userexists", "Login already in use"))
+          .body(null);
     }
 
     return userRepository
@@ -167,7 +168,7 @@ public class UserResource {
               managedUserDTO.getAuthorities().stream()
                   .forEach(authority -> authorities.add(authorityRepository.findOne(authority)));
               return ResponseEntity.ok()
-                  .headers(HeaderUtil.createEntityUpdateAlert("user", managedUserDTO.getLogin()))
+                  .headers(HeaderUtil.createAlert("user-management.updated", managedUserDTO.getLogin()))
                   .body(new ManagedUserDTO(userRepository.findOne(managedUserDTO.getId())));
             }).orElseGet(() -> new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR));
   }

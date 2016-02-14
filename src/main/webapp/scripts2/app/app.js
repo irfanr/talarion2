@@ -2,7 +2,7 @@
 
 angular.module('talarion2App', ['LocalStorageModule', 'tmh.dynamicLocale', 'pascalprecht.translate',
     'ui.bootstrap', // for modal dialogs
-    'ngResource', 'ui.router', 'ngCookies', 'ngAria', 'ngCacheBuster', 'ngFileUpload', // jhipster-needle-angularjs-add-module JHipster will add new module
+    'ngResource', 'ui.router', 'ngCookies', 'ngAria', 'ngCacheBuster', 'ngFileUpload', // jhipster-needle-angularjs-add-module JHipster will add new module here
     'infinite-scroll', 'smart-table', 'angular-growl', 'angucomplete-alt', 'angular-loading-bar'
 ])
 
@@ -109,6 +109,7 @@ angular.module('talarion2App', ['LocalStorageModule', 'tmh.dynamicLocale', 'pasc
         $httpProvider.interceptors.push('errorHandlerInterceptor');
         $httpProvider.interceptors.push('authExpiredInterceptor');
         $httpProvider.interceptors.push('notificationInterceptor');
+        // jhipster-needle-angularjs-add-interceptor JHipster will add new application interceptor here
 
         // Initialize angular-translate
         $translateProvider.useLoader('$translatePartialLoader', {
@@ -127,7 +128,7 @@ angular.module('talarion2App', ['LocalStorageModule', 'tmh.dynamicLocale', 'pasc
         growlProvider.globalTimeToLive(3000);
 
     })
-    // jhipster-needle-angularjs-add-config JHipster will add new application configuration
+    // jhipster-needle-angularjs-add-config JHipster will add new application configuration here
     .config(['$urlMatcherFactoryProvider', function($urlMatcherFactory) {
         $urlMatcherFactory.type('boolean', {
             name: 'boolean',
