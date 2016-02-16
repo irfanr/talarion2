@@ -23,7 +23,7 @@ spring:
         url: jdbc:postgresql://localhost:5432/talarion2
         name:
         username: talarion2
-        password:
+        password: talarion2
     jpa:
         database-platform: com.mascova.talarion2.domain.util.FixedPostgreSQL82Dialect
         database: POSTGRESQL
