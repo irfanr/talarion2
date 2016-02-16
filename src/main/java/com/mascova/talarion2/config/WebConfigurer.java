@@ -57,8 +57,8 @@ public class WebConfigurer implements ServletContextInitializer, EmbeddedServlet
       initMetrics(servletContext, disps);
     }
     if (env.acceptsProfiles(Constants.SPRING_PROFILE_PRODUCTION)) {
-      initCachingHttpHeadersFilter(servletContext, disps);
-      initStaticResourcesProductionFilter(servletContext, disps);
+      // initCachingHttpHeadersFilter(servletContext, disps);
+      // initStaticResourcesProductionFilter(servletContext, disps);
     }
     log.info("Web application fully configured");
   }
