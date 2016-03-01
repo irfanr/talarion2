@@ -96,9 +96,16 @@ public class DatabaseConfiguration {
       } else {
         liquibase.setShouldRun(false);
       }
-    } else {
+    } else if (env.acceptsProfiles(Constants.SPRING_PROFILE_DEVELOPMENT)) {
+
       log.debug("Configuring Liquibase");
       liquibase.setDropFirst(true);
+      liquibase.setShouldRun(true);
+
+    } else if (env.acceptsProfiles(Constants.SPRING_PROFILE_PRODUCTION)) {
+
+      log.debug("Disabling Liquibase in PROD");
+      liquibase.setShouldRun(false);
     }
     return liquibase;
   }
