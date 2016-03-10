@@ -20,5 +20,10 @@
       tableName="category">
     </loadData>
 
+    <dropSequence sequenceName="category_id_seq" />
+
+    <createSequence incrementBy="1" maxValue="9223372036854775807" minValue="1"
+      startValue="4" sequenceName="category_id_seq" />
+
   </changeSet>
 </databaseChangeLog>

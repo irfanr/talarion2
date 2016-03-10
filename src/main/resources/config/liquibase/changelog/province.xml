@@ -4,7 +4,7 @@
 
   <property name="now" value="now()" dbms="mysql,h2" />
   <property name="now" value="current_timestamp" dbms="postgresql" />
-  
+
   <changeSet id="20150917134600" author="jhipster">
     <createTable tableName="province">
       <column name="id" type="bigint" autoIncrement="true">
@@ -19,6 +19,11 @@
     <loadData encoding="UTF-8" file="config/liquibase/province.DEV.csv" separator=";"
       tableName="province">
     </loadData>
+
+    <dropSequence sequenceName="province_id_seq" />
+
+    <createSequence incrementBy="1" maxValue="9223372036854775807" minValue="1"
+      startValue="2" sequenceName="province_id_seq" />
 
   </changeSet>
 </databaseChangeLog>

@@ -24,5 +24,10 @@
     <loadData encoding="UTF-8" file="config/liquibase/image.csv" separator="," tableName="image">
     </loadData>
 
+    <dropSequence sequenceName="image_id_seq" />
+
+    <createSequence incrementBy="1" maxValue="9223372036854775807" minValue="1"
+      startValue="16" sequenceName="image_id_seq" />
+
   </changeSet>
 </databaseChangeLog>

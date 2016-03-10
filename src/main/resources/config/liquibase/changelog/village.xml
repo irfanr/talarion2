@@ -17,12 +17,18 @@
       <column name="sub_district_id" type="bigint" />
     </createTable>
 
-    <addForeignKeyConstraint baseColumnNames="sub_district_id" baseTableName="village"
-      constraintName="fk_pppa2x90ey4085h6nno1ykwsb" referencedColumnNames="id" referencedTableName="sub_district" />
+    <addForeignKeyConstraint baseColumnNames="sub_district_id"
+      baseTableName="village" constraintName="fk_pppa2x90ey4085h6nno1ykwsb" referencedColumnNames="id"
+      referencedTableName="sub_district" />
 
     <loadData encoding="UTF-8" file="config/liquibase/village.DEV.csv" separator=";"
       tableName="village">
     </loadData>
+
+    <dropSequence sequenceName="village_id_seq" />
+
+    <createSequence incrementBy="1" maxValue="9223372036854775807" minValue="1"
+      startValue="1" sequenceName="village_id_seq" />
 
   </changeSet>
 </databaseChangeLog>
